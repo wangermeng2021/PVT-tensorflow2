@@ -1,0 +1,12 @@
+temp
+tmp
+*tmp
+*_tmp
+*_temp
+
+.idea/*
+*.h5
+*.checkpoint
+*__pycache__*
+*.pyc
+*.pyo
