@@ -49,18 +49,18 @@ def main(args):
         os.makedirs(args.checkpoints)
     # lr_cb = tf.keras.callbacks.ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=20, verbose=1, min_lr=0)
     lr_cb = tf.keras.callbacks.LearningRateScheduler(lr_scheduler)
-    model_checkpoint_cb = tf.keras.callbacks.ModelCheckpoint(filepath=args.checkpoints+'/best_weight_{epoch}_{accuracy:.3f}_{val_accuracy:.3f}',
-                                 monitor='val_accuracy',mode='max',
-                                 verbose=1,save_best_only=True)
+    model_checkpoint_cb = tf.keras.callbacks.ModelCheckpoint(filepath=args.checkpoints+'/best_weight_{epoch}_{accuracy:.3f}_{val_accuracy:.3f}.h5',
+                                                             monitor='val_accuracy',mode='max',
+                                                             verbose=1,save_best_only=True,save_weights_only=True)
     cbs=[lr_cb,
-         # model_checkpoint_cb
+         model_checkpoint_cb
          ]
     model.compile(optimizer,loss_object,metrics=["accuracy"],)
     model.fit(train_generator,
                           validation_data=val_generator,
                           epochs=args.epochs,
                           callbacks=cbs,
-                          verbose=2,
+                          verbose=1,
                           )
 
 if __name__== "__main__":

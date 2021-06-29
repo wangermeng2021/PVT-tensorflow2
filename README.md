@@ -1,8 +1,14 @@
 
 # PVT-tensorflow2
+[![Python 3.7](https://img.shields.io/badge/Python-3.7-3776AB)](https://www.python.org/downloads/release/python-360/)
+[![TensorFlow 2.4](https://img.shields.io/badge/TensorFlow-2.4-FF6F00?logo=tensorflow)](https://github.com/tensorflow/tensorflow/releases/tag/v2.2.0)
+
 A Tensorflow2.x implementation of Pyramid Vision Transformer as described in [Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions](https://arxiv.org/abs/2102.12122)
 
 ## Update Log
+[2021-06-29]
+* Fix bug on saving model
+  
 [2021-03-20] 
 * Add PVT-tiny,PVT-small,PVT-medium,PVT-large. 
 

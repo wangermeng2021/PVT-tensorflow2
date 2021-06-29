@@ -101,6 +101,14 @@ class AddPosEmbed(tf.keras.layers.Layer):
     def call(self, x):
         return x+self.pos_embed
 
+    def get_config(self):
+
+        config = super().get_config().copy()
+        config.update({
+            'img_len': self.img_len,
+        })
+        return config
+
 def get_pvt(img_size,num_classes,block_depth,mlp_ratio,drop_path_rate,first_level_patch_size,embed_dims,num_heads,sr_ratio,attention_drop_rate,drop_rate):
     block_drop_path_rate = np.linspace(0, drop_path_rate, sum(block_depth))
     block_depth_index = 0
